@@ -15,6 +15,7 @@ end
 Appium::Driver.new(caps,true)
 Appium.promote_appium_methods Object
 
+
 def make_screenshot(text)
   if File.directory?("screenshots")
     puts("ok")
