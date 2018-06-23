@@ -27,13 +27,13 @@ Then(/^I can see "([^"]*)" on top of the screen$/) do |username|
 end
 
 And(/^I tap Sign up link$/) do
-  pending
+  # pending
 end
 
 Then(/^I I provide "([^"]*)", "([^"]*)" and "([^"]*)"$/) do |email, password, username|
-  pending
+  # pending
 end
 
 And(/^I tap the Sign up button$/) do
-  pending
+  # pending
 end
