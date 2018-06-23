@@ -1,0 +1,2 @@
+home: --format html --out homepage.html --format pretty --tags @base_1,@login
+login: --format html --out homepage.html --format pretty --tags @signup
