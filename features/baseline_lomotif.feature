@@ -19,5 +19,5 @@ Feature: I can create 15s Lomotif video photo taken from phone
 
     Examples:
     |folder_name  |files_num  |music    |sec  |
-    |Camera       |1          |Rock     |10   |
+    |Camera       |1          |Rock     |3  |
     |Camera       |1          |Disco    |20   |
