@@ -6,7 +6,7 @@ def caps
   { caps: {
       deviceName: "Android",
       platformName: "Android",
-      # app: (File.join(File.dirname(__FILE__), "base.apk")),
+      # app: (File.join(File.dirname(__FILE__), "com.lomotif.android-v2.2.7.apk")),
       appPackage: "com.lomotif.android",
       appActivity: "com.lomotif.android.view.LMLauncherActivity",
       newCommandTimeout: "3600"
