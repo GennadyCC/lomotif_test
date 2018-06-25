@@ -10,10 +10,12 @@ Then(/^I tap LogIn link$/) do
   find_element(id: "action_login").click
 end
 
-Then(/^I provide "([^"]*)" and "([^"]*)"$/) do |email, pass|
-  find_element(id: "field_mail").send_keys(email)
-  find_element(id: "field_password").send_keys(pass)
-  hide_keyboard
+Then(/^I provide "([^"]*)" "([^"]*)" and "([^"]*)"$/) do |unique, email, pass|
+  find_element(id: "field_mail").send_keys(email+unique)
+  find_element(id: "field_password").send_keys(pass+unique)
+  if is_keyboard_shown
+    hide_keyboard
+  end
 end
 
 And(/^I tap LogIn button$/) do
@@ -22,27 +24,50 @@ And(/^I tap LogIn button$/) do
 end
 
 Then(/^I can see "([^"]*)" on top of the screen$/) do |username|
-  sleep 3
+  sleep 5
   # binding.pry
-  if !exists{text(username)}
-    fail("element #{username} does not exists")
+  if exists{text("Oops, this username is taken. Try something else?")}
+      message = find_element(id: "message").text
+      p message
+      fail("ERROR: message #{message}")
+      make_screenshot("login_fail")
+  else
+    # binding.pry
+    sleep 5
+      if !exists{text(username)}
+          fail("element #{username} does not exists")
+          make_screenshot("login_fail")
+      end
   end
-  make_screenshot("login")
 end
 
 And(/^I tap Sign up link$/) do
   find_element(id: "action_signup").click
 end
 
-Then(/^I provide "([^"]*)", "([^"]*)" and "([^"]*)"$/) do |email, password, username|
-  find_element(id: "field_mail").send_keys(email)
-  find_element(id: "field_username").send_keys(password)
-  find_element(id: "field_password").send_keys(username)
+Then(/^I provide "([^"]*)" "([^"]*)", "([^"]*)" and "([^"]*)"$/) do |unique, email, password, username|
+  find_element(id: "field_mail").send_keys(email+unique)
+  find_element(id: "field_username").send_keys(username+unique)
+  find_element(id: "field_password").send_keys(password+unique)
+end
+
+Then(/^I provide "([^"]*)" "([^"]*)" and "([^"]*)" "([^"]*)"$/) do |unique_1, email, unique_2, password| ########
+  find_element(id: "field_mail").send_keys(email+unique_1)
+  find_element(id: "field_password").send_keys(password+unique_2)
 end
 
 And(/^I tap the Sign up button$/) do
-  hide_keyboard
+  if is_keyboard_shown
+    hide_keyboard
+  end
   find_element(xpath: "//android.widget.Button[@text = 'Sign up']").click
+end
+
+Then(/^I can see message "([^"]*)"$/) do |message|
+  sleep 5
+  if !exists{text(message)}
+    fail("No error message #{username}")
+  end
 end
 
 # Email
@@ -113,4 +138,5 @@ Then(/^I provide password with valid format and there is no error message "([^"]
     fail("ERROR: #{print_message} #{$errors_collection}")
   end
 end
+
 
