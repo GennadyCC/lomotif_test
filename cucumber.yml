@@ -1,2 +1,3 @@
-home: --format html --out homepage.html --format pretty --tags @base_1,@login
-login: --format html --out homepage.html --format pretty --tags @signup
+smoke: --format html --out homepage.html --format pretty --tags @smoke1
+login: --format html --out homepage.html --format pretty --tags @signup_valid_data,@login_valid_data,@login_invalid_data
+signup_format: --format html --out homepage.html --format pretty --tags @signup_invalid_email_format,@signup_valid_email_format,@signup_invalid_username_format,@signup_valid_username_format,@signup_invalid_password_format,@signup_valid_password_format
