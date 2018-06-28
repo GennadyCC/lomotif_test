@@ -7,7 +7,7 @@ $incorrect_email = [
     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@domain.com",
     "@domain.com", #Length of local part
     'abc"@domain.com',
-    ".abc@domain.com", #dot not the first or last character
+    ".abc@domain.com" #dot not the first or last character
     "abc.@domain.com", #dot not the first or last character
     "abc..@domain.com", #not allowed without quoted
     '"ab"cd@domain.com', #quoted strings must be dot separated
@@ -75,7 +75,7 @@ $correct_username = [
     "_abc_", #dots
     ".abc.", #dots
     "....", #only dots
-    "____", #only underscore
+    "____" #only underscore
 ]
 
 $incorrect_username = [
@@ -85,22 +85,22 @@ $incorrect_username = [
     "   abc   ", #spases before after
     "     ",
     '!#$%*/?|.;\,^{}`~&"+-=', #special char
-    "abc+d",
+    "abc+d"
 ]
 
 $incorrect_password = [
     "         ", #spases
     "1234567", # (7) less ten minimum < 8
-    "", #empty
+    "" #empty
 ]
 
 $correct_password = [
     "12345678", # (8) minimum 8
-    "1234AAAbbb",
+    "1234AAAbbb"
     "aaaa bbbb",
     #255 char
     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     '!#$%*/?|.;\,^{}`~&"+-=', #special char
     "........", #only dots
-    "________", #only underscore
+    "________" #only underscore
 ]

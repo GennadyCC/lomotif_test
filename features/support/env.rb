@@ -51,6 +51,8 @@ def validation(test_type, field, list_name, popup_message, print_message, screen
     target_field = "field_password" # path to username field
   end
 
+  $errors_collection.clear
+
   i = list_name.length
   b = 0
   error_status = 0
